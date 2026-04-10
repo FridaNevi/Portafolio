@@ -9,7 +9,6 @@ export default function HomePage() {
       <Navbar />
       <Hero />
 
-      {/* Portfolio */}
       <section id="portafolio" className="scroll-mt-14">
         <div className="max-w-[1400px] mx-auto px-6 md:px-16 pt-20 pb-2">
           <h2 className="font-bold text-[clamp(2rem,5vw,3rem)] tracking-tight text-[#0A0A0A]">
@@ -20,11 +19,9 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Client component: filters + carousel + modal */}
         <FeatureCarousel />
       </section>
 
-      {/* Footer / Contact */}
       <footer id="contacto" className="bg-[#0A0A0A] text-white px-6 md:px-16 py-20">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
           <div className="flex flex-col gap-3">

@@ -5,9 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Proyecto } from "@/lib/projects";
 
-/* ─────────────────────────────────────────────
-   Helpers
-───────────────────────────────────────────── */
 function getModalImage(project: Proyecto): string {
   if (project.tipo === "imagen") return project.src;
   if (project.tipo === "video") return project.thumbnail;
@@ -17,7 +14,6 @@ function getModalImage(project: Proyecto): string {
 function MediaBadge({ project }: { project: Proyecto }) {
   if (project.tipo === "video") {
     return (
-      /* Play button overlay for video */
       <div className="absolute inset-0 flex items-center justify-center bg-black/20">
         <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-xl">
           <svg className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +31,6 @@ function MediaBadge({ project }: { project: Proyecto }) {
 
   if (project.tipo === "libro" && project.pdf) {
     return (
-      /* PDF badge for libro with PDF */
       <div className="absolute bottom-3 left-3">
         <span className="inline-flex items-center gap-1.5 bg-white/95 text-[#0A0A0A] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
           <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -74,9 +69,6 @@ function MediaBadge({ project }: { project: Proyecto }) {
   return null;
 }
 
-/* ─────────────────────────────────────────────
-   Modal
-───────────────────────────────────────────── */
 interface ProjectModalProps {
   project: Proyecto;
   onClose: () => void;
@@ -108,10 +100,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       aria-modal="true"
       aria-label={project.titulo}
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
-      {/* Panel */}
       <div
         className="
           relative z-10 bg-white w-full sm:max-w-3xl
@@ -123,7 +113,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         "
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Left: visual ── */}
         <div className="sm:w-[42%] flex-shrink-0 bg-[#0A0A0A] relative">
           <div className="relative w-full aspect-[4/5] sm:h-full sm:aspect-auto">
             <Image
@@ -137,9 +126,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         </div>
 
-        {/* ── Right: content ── */}
         <div className="flex flex-col flex-1 overflow-y-auto min-h-0">
-          {/* Close button */}
           <button
             onClick={onClose}
             className="absolute top-4 right-4 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-md transition-all hover:scale-110"
@@ -152,17 +139,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
 
           <div className="p-6 sm:p-8 flex flex-col gap-5 flex-1">
-            {/* Meta */}
             <p className="text-[#A3A3A3] text-xs font-semibold uppercase tracking-widest">
               {categoryLabel} · {project.año}
             </p>
 
-            {/* Title */}
             <h2 className="font-bold text-2xl sm:text-[1.6rem] text-[#0A0A0A] leading-tight tracking-tight">
               {project.titulo}
             </h2>
 
-            {/* Tags */}
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
                 <span key={tag}
@@ -172,7 +156,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               ))}
             </div>
 
-            {/* Type-specific meta line */}
             {project.tipo === "video" && project.duracion !== "0:00" && (
               <p className="text-[#A3A3A3] text-xs font-medium -mt-2">
                 Duración: {project.duracion}
@@ -187,12 +170,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             <div className="border-t border-[#F0F0F0]" />
 
-            {/* Description */}
             <p className="text-[#525252] text-sm leading-relaxed flex-1">
               {project.descripcionLarga}
             </p>
 
-            {/* CTA */}
             <Link
               href={`/${project.id}`}
               className="

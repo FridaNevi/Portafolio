@@ -43,9 +43,6 @@ export interface ProyectoLibro extends ProyectoBase {
 
 export type Proyecto = ProyectoImagen | ProyectoVideo | ProyectoLibro;
 
-// ─────────────────────────────────────────────────────────────────────────────
-// AUDIOVISUAL
-// ─────────────────────────────────────────────────────────────────────────────
 export const audiovisual: ProyectoVideo[] = [
   {
     id: "av-01",
@@ -133,9 +130,6 @@ export const audiovisual: ProyectoVideo[] = [
 },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// BOCETOS
-// ─────────────────────────────────────────────────────────────────────────────
 export const bocetos: ProyectoImagen[] = [
   {
     id: "boc-01",
@@ -153,9 +147,6 @@ export const bocetos: ProyectoImagen[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// BRANDING
-// ─────────────────────────────────────────────────────────────────────────────
 export const branding: ProyectoImagen[] = [
   {
     id: "brand-01",
@@ -172,9 +163,6 @@ export const branding: ProyectoImagen[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// LIBRO
-// ─────────────────────────────────────────────────────────────────────────────
 export const libro: ProyectoLibro[] = [
   {
     id: "libro-01",
@@ -193,9 +181,6 @@ export const libro: ProyectoLibro[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CARTELES
-// ─────────────────────────────────────────────────────────────────────────────
 export const carteles: ProyectoImagen[] = [
   {
     id: "cartel-01",
@@ -211,9 +196,6 @@ export const carteles: ProyectoImagen[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// FOTOGRAFÍA
-// ─────────────────────────────────────────────────────────────────────────────
 export const fotografia: ProyectoImagen[] = [
   {
     id: "foto-01",
@@ -327,20 +309,17 @@ export const fotografia: ProyectoImagen[] = [
     ],
   },
 ];
-// ─────────────────────────────────────────────────────────────────────────────
-// ILUSTRACIONES
-// ─────────────────────────────────────────────────────────────────────────────
 export const ilustraciones: ProyectoImagen[] = [
   {
     id: "ilus-01",
     tipo: "imagen",
     categoria: "ilustraciones",
     titulo: "Figaro Pho — Sombras internas",
-    descripcion: "Ilustración de estilo oscuro con influencia expresionista, generada con IA y refinada mediante edición digital.",
+    descripcion: "Ilustración de estilo oscuro con influencia expresionista, desarrollada a partir de experimentación visual y refinada mediante edición digital.",
     descripcionLarga:
-      "Ilustración conceptual inspirada en una estética oscura y emocional, con referencias al estilo gótico y expresionista. La base visual fue generada mediante herramientas de inteligencia artificial, seguida de un proceso de edición digital enfocado en ajuste de contraste, textura y composición para reforzar la narrativa. La pieza explora la ansiedad y el miedo interno a través de la exageración de rasgos, el uso del blanco y negro y una atmósfera cargada de tensión visual. La tipografía y el entorno refuerzan el carácter introspectivo del personaje.",
+      "Ilustración conceptual inspirada en una estética oscura y emocional, con referencias al estilo gótico y expresionista. La pieza fue trabajada mediante exploración visual y edición digital, con ajustes de contraste, textura y composición para reforzar la narrativa. Explora la ansiedad y el miedo interno a través de la exageración de rasgos, el uso del blanco y negro y una atmósfera cargada de tensión visual. La tipografía y el entorno refuerzan el carácter introspectivo del personaje.",
     año: 2024,
-    tags: ["IA + Edición", "Expresionista", "Blanco y negro"],
+    tags: ["Edición digital", "Expresionista", "Blanco y negro"],
     src: "/assets/ilustraciones/ilustracion-01.jpeg",
     galeria: [
       "/assets/ilustraciones/ilustracion-01.jpeg"
@@ -363,9 +342,6 @@ export const ilustraciones: ProyectoImagen[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// EXPORTACIÓN AGRUPADA
-// ─────────────────────────────────────────────────────────────────────────────
 export const todosLosProyectos: Proyecto[] = [
   ...audiovisual,
   ...bocetos,

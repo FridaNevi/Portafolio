@@ -1,20 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]">
       <nav className="flex items-center justify-between px-6 py-3 max-w-[1400px] mx-auto">
-        {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2.5 text-white hover:opacity-80 transition-opacity"
         >
-          {/* Snowflake / asterisk icon — matches Figma */}
           <svg
             width="22"
             height="22"
@@ -38,7 +33,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
           <Link
             href="/#sobre-mi"
@@ -54,7 +48,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile: only Trabajos button */}
         <div className="flex md:hidden items-center gap-3">
           <Link
             href="/#portafolio"

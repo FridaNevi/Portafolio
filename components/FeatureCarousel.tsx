@@ -16,7 +16,6 @@ function FilterBar({
   return (
     <div className="w-full overflow-x-auto scrollbar-none">
       <div className="flex items-center gap-2 px-6 md:px-16 pb-2 min-w-max">
-        {/* "Todos" pill */}
         <button
           onClick={() => onChange("todos")}
           className={`
@@ -76,7 +75,6 @@ function CarouselMobile({
 }) {
   const [idx, setIdx] = useState(0);
 
-  // Reset index when items list changes (filter change)
   useEffect(() => { setIdx(0); }, [items]);
 
   if (items.length === 0) return <EmptyState />;
@@ -109,7 +107,6 @@ function CarouselMobile({
           <ChevronRight />
         </button>
 
-        {/* Dot indicators */}
         <div className="flex justify-center gap-2 mt-8">
           {items.map((_, i) => (
             <button key={i} onClick={() => setIdx(i)}
@@ -167,7 +164,6 @@ function CarouselDesktop({
           <ChevronRight size={28} sw={2.5} />
         </button>
 
-        {/* Page dots */}
         <div className="flex justify-center gap-3 mt-12">
           {Array.from({ length: totalPages }).map((_, i) => (
             <button key={i} onClick={() => setIdx(i * PER_VIEW)}
@@ -205,19 +201,16 @@ export default function FeatureCarousel() {
 
   return (
     <>
-      {/* ── Filter bar ── */}
       <div className="pt-6 pb-2">
         <FilterBar active={activeCategory} onChange={setActiveCategory} />
       </div>
 
-      {/* ── Carousel ── */}
       {width < 1024 ? (
         <CarouselMobile items={filteredItems} onCardClick={handleCardClick} />
       ) : (
         <CarouselDesktop items={filteredItems} onCardClick={handleCardClick} />
       )}
 
-      {/* ── Modal ── */}
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={handleCloseModal} />
       )}

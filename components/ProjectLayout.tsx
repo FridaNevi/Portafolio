@@ -6,28 +6,14 @@ import Link from "next/link";
 import Navbar from "./Navbar";
 import { Proyecto, perfil } from "@/lib/projects";
 
-// ─────────────────────────────────────────────
-// TYPES
-// ─────────────────────────────────────────────
-
 type LightboxState = { images: string[]; index: number } | null;
 
-// ─────────────────────────────────────────────
-// UTILS
-// ─────────────────────────────────────────────
-
-/** Combina arrays de imágenes y elimina duplicados y vacíos */
 function buildImageList(...sources: (string | string[] | undefined | null)[]): string[] {
   const flat = sources.flatMap((s) =>
     Array.isArray(s) ? s : s ? [s] : []
   );
-  // Dedup preservando orden
   return Array.from(new Set(flat.filter(Boolean)));
 }
-
-// ─────────────────────────────────────────────
-// HOOKS
-// ─────────────────────────────────────────────
 
 function useLightbox() {
   const [state, setState] = useState<LightboxState>(null);
@@ -39,7 +25,6 @@ function useLightbox() {
   return { state, open, close, next, prev, goTo };
 }
 
-// Keyboard estable via ref — nunca stale closures
 function useKeyboard(
   enabled: boolean,
   onLeft: () => void,
@@ -76,10 +61,6 @@ function useThumbScroll(ref: React.RefObject<HTMLDivElement | null>, index: numb
       ?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }, [ref, index]);
 }
-
-// ─────────────────────────────────────────────
-// LIGHTBOX
-// ─────────────────────────────────────────────
 
 function Lightbox({ state, onClose, onNext, onPrev, onGoTo }: {
   state: LightboxState;
@@ -128,7 +109,6 @@ function Lightbox({ state, onClose, onNext, onPrev, onGoTo }: {
 
       <div className="absolute inset-0 flex items-center justify-center px-16">
         <div className="relative h-[80vh] w-full max-w-[1700px]">
-          {/* key por índice para forzar remount */}
           <Image
             key={`lb-${index}`}
             src={images[index]}
@@ -168,10 +148,6 @@ function Lightbox({ state, onClose, onNext, onPrev, onGoTo }: {
     </div>
   );
 }
-
-// ─────────────────────────────────────────────
-// SHARED UI
-// ─────────────────────────────────────────────
 
 function TopBar({ project, right }: { project: Proyecto; right?: React.ReactNode }) {
   return (
@@ -255,11 +231,6 @@ function SidebarInfo({ project }: { project: Proyecto }) {
   );
 }
 
-// ─────────────────────────────────────────────
-// IMAGE CAROUSEL — visor con carrete inferior
-// Usado para imágenes, carteles y libros
-// ─────────────────────────────────────────────
-
 function ImageCarousel({
   images,
   lightboxOpen,
@@ -277,7 +248,6 @@ function ImageCarousel({
 
   const many = images.length > 1;
 
-  // Functional updates — sin stale closures
   const goPrev = useCallback(() => setIndex((i) => (i - 1 + images.length) % images.length), [images.length]);
   const goNext = useCallback(() => setIndex((i) => (i + 1) % images.length), [images.length]);
   const goTo   = useCallback((i: number) => setIndex(i), []);
@@ -287,10 +257,7 @@ function ImageCarousel({
   return (
     <div className="flex min-h-0 flex-1 flex-col">
 
-      {/* Imagen activa + flechas overlay */}
       <div className="relative min-h-0 flex-1 bg-[#0d0d0d]">
-
-        {/* Ampliar — siempre visible en esquina */}
         <button
           type="button"
           onClick={() => onOpenLightbox(images, index)}
@@ -299,14 +266,12 @@ function ImageCarousel({
           AMPLIAR
         </button>
 
-        {/* Contador — arriba a la izquierda, solo si hay múltiples */}
         {many && (
           <div className="absolute left-4 top-4 z-20 rounded-full border border-white/10 bg-black/50 px-3 py-1.5 text-[10px] tabular-nums tracking-[0.2em] text-white/60 backdrop-blur-sm">
             {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
           </div>
         )}
 
-        {/* key por índice — evita glitch de caché al cambiar imagen */}
         <Image
           key={`img-${index}`}
           src={images[index]}
@@ -317,7 +282,6 @@ function ImageCarousel({
           className="object-contain p-4 md:p-8"
         />
 
-        {/* Flechas izquierda/derecha — siempre visibles si hay varias */}
         {many && (
           <>
             <button type="button" onClick={goPrev} aria-label="Anterior"
@@ -332,7 +296,6 @@ function ImageCarousel({
         )}
       </div>
 
-      {/* Carrete de miniaturas — solo si hay varias */}
       {many && (
         <div className="shrink-0 border-t border-white/8 bg-[#111] px-4 py-3 md:px-6">
           <div
@@ -363,11 +326,6 @@ function ImageCarousel({
   );
 }
 
-// ─────────────────────────────────────────────
-// CONTENT VIEW — layout universal: sidebar + contenido
-// Usado para imagen, libro y video
-// ─────────────────────────────────────────────
-
 function ContentView({
   project,
   children,
@@ -380,12 +338,10 @@ function ContentView({
       <TopBar project={project} />
 
       <div className="flex min-h-0 flex-1 flex-col md:flex-row">
-        {/* Sidebar izquierda */}
         <div className="shrink-0 border-b border-white/8 bg-[#111] md:w-[290px] md:border-b-0 md:border-r lg:w-[320px]">
           <SidebarInfo project={project} />
         </div>
 
-        {/* Contenido derecha */}
         <div className="flex min-h-0 flex-1 flex-col">
           {children}
         </div>
@@ -396,10 +352,6 @@ function ContentView({
   );
 }
 
-// ─────────────────────────────────────────────
-// ROOT
-// ─────────────────────────────────────────────
-
 export default function ProjectLayout({ project }: { project: Proyecto }) {
   const { state, open, close, next, prev, goTo } = useLightbox();
 
@@ -407,7 +359,6 @@ export default function ProjectLayout({ project }: { project: Proyecto }) {
     let raw: string[] = [];
 
     if (project.tipo === "imagen") {
-      // src + paginas + galeria, sin duplicados
       const p = project as unknown as Record<string, unknown>;
       raw = buildImageList(
         project.src,
@@ -415,7 +366,6 @@ export default function ProjectLayout({ project }: { project: Proyecto }) {
         p.galeria as string[] | undefined,
       );
     } else if (project.tipo === "libro") {
-      // portada + paginas, sin duplicados
       const p = project as unknown as Record<string, unknown>;
       raw = buildImageList(
         p.portada as string | undefined,
@@ -432,8 +382,6 @@ export default function ProjectLayout({ project }: { project: Proyecto }) {
       <Lightbox state={state} onClose={close} onNext={next} onPrev={prev} onGoTo={goTo} />
 
       <main className="h-screen overflow-hidden pt-[60px]">
-
-        {/* VIDEO */}
         {project.tipo === "video" && (
           <ContentView project={project}>
             <div className="flex min-h-0 flex-1 items-center justify-center bg-[#060606] p-6 md:p-10">
@@ -447,7 +395,6 @@ export default function ProjectLayout({ project }: { project: Proyecto }) {
           </ContentView>
         )}
 
-        {/* IMAGEN / LIBRO — sidebar + carrete */}
         {(project.tipo === "imagen" || project.tipo === "libro") && images.length > 0 && (
           <ContentView project={project}>
             <ImageCarousel

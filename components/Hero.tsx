@@ -7,7 +7,6 @@ export default function Hero() {
     <section id="sobre-mi" className="min-h-screen flex items-center pt-[56px]">
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-16">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16 py-16 md:py-24">
-          {/* Left: text */}
           <div className="flex flex-col gap-6 md:gap-8 md:w-[45%] md:flex-shrink-0">
             <h1 className="font-bold text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] tracking-tight text-[#0A0A0A]">
               {perfil.nombre}
@@ -38,7 +37,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: photo */}
           <div className="md:w-[55%] md:flex-shrink-0">
             <div className="relative w-full aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden bg-[#E5E5E5]">
               <Image

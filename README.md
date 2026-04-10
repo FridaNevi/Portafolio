@@ -1,118 +1,50 @@
-# Frida Ninel — Portafolio
+# Portafolio de Frida Ninel
 
-Portfolio personal construido con **Next.js 14**, **TypeScript** y **Tailwind CSS**.
-Diseño basado en el prototipo de Figma original.
+Este portafolio reúne una selección de proyectos realizados por Frida Ninel Espituñal Villanueva, estudiante de Diseño de la Comunicación Gráfica. El trabajo presentado parte de una búsqueda visual y narrativa donde la imagen funciona como medio para comunicar emociones, memoria, identidad y atmósferas.
 
----
+La propuesta integra piezas desarrolladas desde distintas áreas del diseño y la producción visual, con interés en lo conceptual, lo sensible y lo expresivo.
 
-## Instalación
+## Sobre el portafolio
 
-```bash
-npm install
-npm run dev
-```
+Este espacio funciona como una muestra de procesos, exploraciones y proyectos finales. Más que presentar únicamente resultados, busca reflejar una forma de observar, construir y comunicar desde el diseño.
 
-Abre [http://localhost:3000](http://localhost:3000)
+La línea del trabajo se mueve entre lo editorial, lo audiovisual, la fotografía, la ilustración y la identidad visual, manteniendo como eje una mirada introspectiva y una intención comunicativa clara.
 
----
+## Áreas de trabajo
 
-## Estructura del proyecto
+- Audiovisual
+- Fotografía
+- Branding
+- Diseño editorial
+- Carteles
+- Ilustración
+- Bocetos y proceso
 
-```
-frida-ninel-portfolio/
-├── app/
-│   ├── layout.tsx          ← Root layout + metadata global
-│   ├── page.tsx            ← Homepage (Hero + Carrusel)
-│   ├── globals.css         ← Estilos base + fuente Inter
-│   ├── imfine/page.tsx
-│   ├── itsokey/page.tsx
-│   ├── gomazine/page.tsx
-│   ├── eclipsis/page.tsx
-│   ├── villa/page.tsx
-│   ├── memoriaysilencio/page.tsx
-│   └── ecos/page.tsx
-├── components/
-│   ├── Navbar.tsx          ← Barra de navegación (negra, fija)
-│   ├── Hero.tsx            ← Sección principal con foto y bio
-│   ├── FeatureCarousel.tsx ← Carrusel (mobile 1 card / desktop 3 cards)
-│   ├── CarouselCard.tsx    ← Tarjeta individual del carrusel
-│   └── ProjectLayout.tsx   ← Layout reutilizable para páginas de proyecto
-├── hooks/
-│   └── useWindowSize.ts    ← Hook responsive (reemplaza useActiveBreakpoint de Figma)
-├── lib/
-│   └── projects.ts         ← ⭐ TODA la data de proyectos en un solo lugar
-└── public/
-    └── images/             ← ⭐ AQUÍ van todos tus assets
-```
+## Selección de proyectos
 
----
+El portafolio incluye 19 proyectos organizados por categorías. Entre ellos se encuentran:
 
-## ⭐ Cómo agregar tus imágenes
+- Cortometrajes como `Calma`, `Donde el silencio habla`, `La mecánica del desencanto` y `Recuerdos de humo`, centrados en la introspección, la memoria y el lenguaje visual.
+- Proyectos fotográficos como `Floreces callada`, `Geometría suspendida`, `Memorias y silencio` y `Tradición ambulante`, donde se exploran el detalle, la arquitectura, la atmósfera y el registro documental.
+- Propuestas gráficas como `It's Okay`, enfocada en cartel conceptual con estética experimental.
+- Ejercicios de identidad visual como `Manual de Identidad - Ninelicus`.
+- Trabajo editorial como `El despertar de Orión`.
+- Piezas de ilustración digital como `Figaro Pho - Sombras internas` y `El Conde - Salsa artesanal`.
+- Bocetos de estructura y planeación visual para el desarrollo del propio portafolio.
 
-Coloca tus archivos en `/public/images/` con estos nombres exactos:
+## Enfoque personal
 
-| Archivo                          | Usado en                          |
-|----------------------------------|-----------------------------------|
-| `hero.jpg`                       | Foto principal del Hero           |
-| `imfine.png`                     | Carrusel + página /imfine         |
-| `itsokey.png`                    | Carrusel + página /itsokey        |
-| `gomazine.png`                   | Carrusel + página /gomazine       |
-| `eclipsis.png`                   | Carrusel + página /eclipsis       |
-| `villa.png`                      | Carrusel + página /villa          |
-| `memoriaysilencio.png`           | Carrusel + página /memoriaysilencio |
-| `ecos.png`                       | Carrusel + página /ecos           |
+Mi trabajo parte de la idea de que diseñar no es solo hacer visible algo, sino darle sentido. Me interesa construir piezas que comuniquen desde la emoción, la composición, la narrativa y el detalle visual.
 
-Puedes usar `.jpg`, `.png`, `.webp` — solo actualiza la extensión en `lib/projects.ts`.
+Busco desarrollar proyectos con identidad, intención y una voz propia, explorando recursos gráficos, fotográficos y audiovisuales que permitan contar historias de forma honesta y sensible.
 
----
+## Perfil
 
-## ⭐ Cómo editar contenido
+**Frida Ninel Espituñal Villanueva**  
+Diseñadora de la Comunicación Gráfica  
+Durango, México
 
-Todo el texto de los proyectos está centralizado en **`lib/projects.ts`**.
-Cada proyecto tiene:
-
-```ts
-{
-  slug: "imfine",          // ← URL: /imfine
-  title: "IM FINE",
-  description: "...",      // ← Subtítulo en la tarjeta del carrusel
-  image: "/images/imfine.png",
-  date: "Julio 7, 2024",
-  categories: ["Proyecto académico", "Diseño gráfico"],
-  quote: "Sometimes 'I'm fine' is just a beautiful lie.",
-  sections: [
-    {
-      heading: "Concepto y mensaje",
-      body: ["párrafo 1", "párrafo 2"],
-      list: ["item 1", "item 2"],   // opcional
-    },
-    // ...
-  ],
-}
-```
-
----
-
-## Rutas
-
-| Ruta                  | Página                        |
-|-----------------------|-------------------------------|
-| `/`                   | Home (Hero + Portafolio)      |
-| `/imfine`             | IM FINE                       |
-| `/itsokey`            | IT'S OKEY                     |
-| `/gomazine`           | Gomazine                      |
-| `/eclipsis`           | El despertar de Orión         |
-| `/villa`              | Silueta de Francisco Villa    |
-| `/memoriaysilencio`   | Memoria y Silencio            |
-| `/ecos`               | Ecos de una vida              |
-
----
-
-## Deploy
-
-```bash
-npm run build
-```
-
-Compatible con Vercel, Netlify, o cualquier hosting de Node.js.
-Para Vercel: conecta el repo y hace deploy automático.
+**Contacto**  
+Correo: `fridaninel@gmail.com`  
+Instagram: `@heyfrida___`  
+LinkedIn: `linkedin.com/in/fridaninel`

@@ -21,7 +21,6 @@ export function useWindowSize(): WindowSize {
       });
     }
 
-    // Set size on mount
     handleResize();
 
     window.addEventListener("resize", handleResize);
