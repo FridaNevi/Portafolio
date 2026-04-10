@@ -49,12 +49,6 @@ export default function HomePage() {
             {perfil.instagram && (
               <span className="text-white/70 text-sm">Instagram — {perfil.instagram}</span>
             )}
-            {perfil.behance && (
-              <a href={`https://${perfil.behance}`} target="_blank" rel="noopener noreferrer"
-                className="text-white/70 text-sm hover:text-white transition-colors">
-                Behance — {perfil.behance.replace("behance.net/", "")}
-              </a>
-            )}
           </div>
         </div>
 

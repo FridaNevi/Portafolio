@@ -22,7 +22,7 @@ function buildImageList(...sources: (string | string[] | undefined | null)[]): s
     Array.isArray(s) ? s : s ? [s] : []
   );
   // Dedup preservando orden
-  return [...new Set(flat.filter(Boolean))];
+  return Array.from(new Set(flat.filter(Boolean)));
 }
 
 // ─────────────────────────────────────────────
@@ -243,9 +243,9 @@ function SidebarInfo({ project }: { project: Proyecto }) {
           </div>
         )}
       </div>
-      {project.pdf && (
+      {"pdf" in project && project.pdf && (
         <div className="mt-auto pt-6">
-          <a href={project.pdf} download
+          <a href={project.pdf as string} download
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white px-5 py-2.5 text-[11px] font-semibold tracking-[0.18em] text-black transition hover:bg-white/90">
             ↓ DESCARGAR PDF
           </a>
@@ -408,10 +408,19 @@ export default function ProjectLayout({ project }: { project: Proyecto }) {
 
     if (project.tipo === "imagen") {
       // src + paginas + galeria, sin duplicados
-      raw = buildImageList(project.src, project.paginas, project.galeria);
+      const p = project as unknown as Record<string, unknown>;
+      raw = buildImageList(
+        project.src,
+        p.paginas as string[] | undefined,
+        p.galeria as string[] | undefined,
+      );
     } else if (project.tipo === "libro") {
       // portada + paginas, sin duplicados
-      raw = buildImageList(project.portada, project.paginas);
+      const p = project as unknown as Record<string, unknown>;
+      raw = buildImageList(
+        p.portada as string | undefined,
+        p.paginas as string[] | undefined,
+      );
     }
 
     return raw;

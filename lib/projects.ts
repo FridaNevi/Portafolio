@@ -386,9 +386,6 @@ export const categorias: { id: Categoria; label: string; count: number }[] = [
   { id: "ilustraciones", label: "Ilustraciones",  count: ilustraciones.length },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PERFIL
-// ─────────────────────────────────────────────────────────────────────────────
 export const perfil = {
   nombre: "Frida Ninel",
   apellidos: "Espituñal Villanueva",
@@ -400,12 +397,11 @@ Creo desde el concepto hasta el resultado final, buscando que cada pieza comuniq
   bioExtendida: `
 Artista visual y escritora mexicana. Mi trabajo explora la intimidad, la memoria y el silencio a través del cine, la escritura y la imagen. Desarrollo proyectos audiovisuales y literarios con una mirada introspectiva, centrada en lo emocional, lo cotidiano y aquello que no siempre se dice, pero se siente.
   `,
-  correo: "frida@email.com",
-  instagram: "@frida.ninel",
-  x: "behance.net/fridaninel",
+  correo: "fridaninel@gmail.com",
+  instagram: "@heyfrida___",
   linkedin: "linkedin.com/in/fridaninel",
   cv: "/assets/cv-frida-ninel.pdf",
   foto: "/assets/fotografia/principal.jpeg",
-  ciudad: "México",
+  ciudad: "Durango",
   disponible: true,
 };
