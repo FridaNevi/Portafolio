@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Proyecto } from "@/lib/projects";
+import { categorias, Proyecto } from "@/lib/projects";
 
 interface CarouselCardProps {
   item: Proyecto;
@@ -13,15 +13,19 @@ function getCardImage(item: Proyecto): string {
   return item.portada;
 }
 
+function getCategoryLabel(item: Proyecto): string {
+  return categorias.find((categoria) => categoria.id === item.categoria)?.label ?? item.categoria;
+}
+
 export default function CarouselCard({ item, isMobile, onClick }: CarouselCardProps) {
   return (
-    <div className={`flex-shrink-0 ${isMobile ? "w-full px-4" : "w-[400px] px-4"}`}>
+    <div className={`flex-shrink-0 ${isMobile ? "w-full px-3" : "w-[420px] px-4"}`}>
       <button
         onClick={() => onClick(item)}
-        className="w-full flex flex-col gap-6 bg-white rounded-2xl overflow-hidden text-left transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] cursor-pointer group"
+        className="group flex w-full cursor-pointer flex-col gap-5 overflow-hidden border border-[#0A0A0A]/10 bg-white/70 p-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[#0A0A0A]/25 hover:bg-white hover:shadow-2xl"
         aria-label={`Ver preview de ${item.titulo}`}
       >
-        <div className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-gray-100">
+        <div className="relative aspect-[4/5] overflow-hidden bg-[#E5E5E5]">
           <Image
             src={getCardImage(item)}
             alt={item.titulo}
@@ -32,7 +36,7 @@ export default function CarouselCard({ item, isMobile, onClick }: CarouselCardPr
 
           {item.tipo === "video" && (
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/10">
-              <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+              <div className="flex h-12 w-12 items-center justify-center bg-white/90 shadow-lg">
                 <svg className="w-5 h-5 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
@@ -47,11 +51,14 @@ export default function CarouselCard({ item, isMobile, onClick }: CarouselCardPr
           )}
         </div>
 
-        <div className="flex flex-col gap-2 px-2 pb-4">
-          <h5 className="font-semibold text-xl text-black tracking-tight group-hover:text-[#525252] transition-colors">
+        <div className="flex flex-col gap-3 px-1 pb-2">
+          <p className="text-[0.65rem] font-black uppercase tracking-[0.22em] text-[#C83F3F]">
+            {getCategoryLabel(item)}
+          </p>
+          <h5 className="text-2xl font-black tracking-normal text-black transition-colors group-hover:text-[#525252]">
             {item.titulo}
           </h5>
-          <p className="font-medium text-lg text-black/55">{item.descripcion}</p>
+          <p className="text-base font-medium leading-relaxed text-black/55">{item.descripcion}</p>
         </div>
       </button>
     </div>
