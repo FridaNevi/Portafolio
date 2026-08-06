@@ -18,11 +18,10 @@ La línea del trabajo se mueve entre lo editorial, lo audiovisual, la fotografí
 - Diseño editorial
 - Carteles
 - Ilustración
-- Bocetos y proceso
 
 ## Selección de proyectos
 
-El portafolio incluye 19 proyectos organizados por categorías. Entre ellos se encuentran:
+El portafolio incluye 18 proyectos organizados por categorías. Entre ellos se encuentran:
 
 - Cortometrajes como `Calma`, `Donde el silencio habla`, `La mecánica del desencanto` y `Recuerdos de humo`, centrados en la introspección, la memoria y el lenguaje visual.
 - Proyectos fotográficos como `Floreces callada`, `Geometría suspendida`, `Memorias y silencio` y `Tradición ambulante`, donde se exploran el detalle, la arquitectura, la atmósfera y el registro documental.
@@ -30,7 +29,6 @@ El portafolio incluye 19 proyectos organizados por categorías. Entre ellos se e
 - Ejercicios de identidad visual como `Manual de Identidad - Ninelicus`.
 - Trabajo editorial como `El despertar de Orión`.
 - Piezas de ilustración digital como `Figaro Pho - Sombras internas` y `El Conde - Salsa artesanal`.
-- Bocetos de estructura y planeación visual para el desarrollo del propio portafolio.
 
 ## Enfoque personal
 

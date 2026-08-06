@@ -41,6 +41,12 @@ export default function Navbar() {
             Sobre mí
           </Link>
           <Link
+            href="/presentacion"
+            className="text-white/80 text-sm font-medium hover:text-white transition-colors"
+          >
+            Presentación
+          </Link>
+          <Link
             href="/#portafolio"
             className="text-[#0A0A0A] bg-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-white/90 transition-colors"
           >
@@ -49,6 +55,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex md:hidden items-center gap-3">
+          <Link
+            href="/presentacion"
+            className="text-white/80 text-sm font-medium hover:text-white transition-colors"
+          >
+            Slides
+          </Link>
           <Link
             href="/#portafolio"
             className="text-[#0A0A0A] bg-white text-sm font-semibold px-4 py-1.5 rounded-full hover:bg-white/90 transition-colors"

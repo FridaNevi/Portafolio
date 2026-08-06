@@ -1,6 +1,5 @@
 export type Categoria =
   | "audiovisual"
-  | "bocetos"
   | "branding"
   | "libro"
   | "carteles"
@@ -128,23 +127,6 @@ export const audiovisual: ProyectoVideo[] = [
   "videoUrl": "/assets/audiovisual/Trayectorias Efimeras.mp4",
   "duracion": "0:38"
 },
-];
-
-export const bocetos: ProyectoImagen[] = [
-  {
-    id: "boc-01",
-    tipo: "imagen",
-    categoria: "bocetos",
-    titulo: "Wireframe de Portafolio Personal",
-    descripcion:
-      "Boceto inicial de la estructura del portafolio digital, donde se definen las secciones principales y la organización del contenido.",
-    descripcionLarga:
-      "Este boceto corresponde a la etapa de planificación del portafolio web, donde se explora la estructura general de la página antes de su desarrollo. Se plantean secciones clave como presentación, contenido audiovisual, galería fotográfica, diseños, proyectos web y contacto.\n\nEl objetivo fue definir una jerarquía clara de información y una navegación intuitiva, priorizando una experiencia visual limpia y organizada. A través de trazos simples en libreta, se distribuyen los elementos principales como bloques tipo grid, carruseles y tarjetas de contenido.\n\nEste tipo de boceto forma parte del proceso creativo y de diseño UX/UI, permitiendo iterar ideas rápidamente antes de llevarlas a una implementación digital.",
-    año: 2026,
-    tags: ["Wireframe", "UX/UI", "Planeación", "Portafolio", "Proceso creativo"],
-    src: "/assets/bocetos/boceto-01.png",
-    galeria: ["/assets/bocetos/boceto-01.png"],
-  },
 ];
 
 export const branding: ProyectoImagen[] = [
@@ -344,7 +326,6 @@ export const ilustraciones: ProyectoImagen[] = [
 
 export const todosLosProyectos: Proyecto[] = [
   ...audiovisual,
-  ...bocetos,
   ...branding,
   ...libro,
   ...carteles,
@@ -354,7 +335,6 @@ export const todosLosProyectos: Proyecto[] = [
 
 export const categorias: { id: Categoria; label: string; count: number }[] = [
   { id: "audiovisual",   label: "Audiovisual",   count: audiovisual.length },
-  { id: "bocetos",       label: "Bocetos",        count: bocetos.length },
   { id: "branding",      label: "Branding",       count: branding.length },
   { id: "libro",         label: "Libro",          count: libro.length },
   { id: "carteles",      label: "Carteles",       count: carteles.length },
